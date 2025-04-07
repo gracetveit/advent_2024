@@ -1,5 +1,5 @@
-mod lib;
+mod solutions;
 
 fn main() {
-    lib::day_01::solution::sol();
+    solutions::day_01::solution::sol();
 }
