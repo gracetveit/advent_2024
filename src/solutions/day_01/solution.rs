@@ -69,7 +69,7 @@ fn test_parse() {
 }
 
 fn multi_reduce(a: i32, b: i32, sum: i32) -> i32 {
-    todo!()
+    return (a -b).abs() + sum;
 }
 
 #[test]
