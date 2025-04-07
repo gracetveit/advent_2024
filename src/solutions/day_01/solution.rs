@@ -14,21 +14,21 @@ use crate::input_reader::input_reader;
 /// Pair up the *smallest number in the left list*  with the *smallest number in
 /// the right list*, then the *second-smallest left number* with the *second-
 /// smallest right number*, and so on.
-/// 
+///
 /// With each pair, figure out *how far apart* the two numnbers are; you'll need
 /// to *add up all of those distances.* For example, if you pair up a `3` from
 /// the left list with a `7` from the right list, the distance apart is `4`;
 /// if you pair up a `9` with a `3`, the distance apart is `6`.
-/// 
+///
 /// # Approach
 /// First, we need to read the input file. Using the `input_reader.rs`, we can
 /// get a raw string. We can split the string by `\n`, and then seperately add
-/// the first and last item from the sub-string to two seperate vectors, and 
+/// the first and last item from the sub-string to two seperate vectors, and
 /// then return those vectors.
-/// 
+///
 /// Next we need to sort the vectors from smallest to largest, using one of
 /// Rust's buit-in tools.
-/// 
+///
 /// After we've sorted the vectors, maybe we can `reduce` them. First
 /// finding the absolute value between the two, and then adding that to a
 /// rolling sum.
@@ -46,7 +46,6 @@ pub fn day_01_solution(filename: &str) -> i32 {
 }
 
 fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
-    use crate::input_reader;
     let mut vec_a = vec![];
     let mut vec_b = vec![];
     let raw_string = input_reader(String::from(filename));
@@ -69,7 +68,7 @@ fn test_parse() {
 }
 
 fn multi_reduce(a: i32, b: i32, sum: i32) -> i32 {
-    return (a -b).abs() + sum;
+    return (a - b).abs() + sum;
 }
 
 #[test]
