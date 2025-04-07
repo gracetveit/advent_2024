@@ -40,7 +40,7 @@ pub fn sol(filename: &str) -> i32 {
         sum = multi_reduce(vec_a[i], vec_b[i], sum);
         i += 1;
     }
-    todo!()
+    return sum;
 }
 
 fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
