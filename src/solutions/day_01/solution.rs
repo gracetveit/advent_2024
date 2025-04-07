@@ -47,6 +47,22 @@ fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
     todo!()
 }
 
+#[test]
+fn test_parse() {
+    use super::solution::day_01_parse;
+    let list_a = vec![3, 4, 2, 1, 3, 3];
+    let list_b = vec![4, 3, 5, 3, 9, 3];
+
+    let (input_list_a, input_list_b) = day_01_parse("inputs/day_01_test.txt");
+    assert_eq!(list_a, input_list_a);
+    assert_eq!(list_b, input_list_b);
+}
+
 fn multi_reduce(a: i32, b: i32, sum: i32) -> i32 {
     todo!()
+}
+
+#[test]
+fn test_multi_reduce() {
+    assert_eq!(multi_reduce(1, 2, 0), 1);
 }
