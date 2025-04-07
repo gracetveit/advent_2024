@@ -31,6 +31,22 @@
 /// finding the absolute value between the two, and then adding that to a
 /// rolling sum.
 pub fn sol(filename: &str) -> i32 {
-    println!("Hello World!");
+    let (mut vec_a, mut vec_b) = day_01_parse(filename);
+    vec_a.sort();
+    vec_b.sort();
+    let mut i = 0;
+    let mut sum = 0;
+    while i < vec_a.len() {
+        sum = multi_reduce(vec_a[i], vec_b[i], sum);
+        i += 1;
+    }
+    todo!()
+}
+
+fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
+    todo!()
+}
+
+fn multi_reduce(a: i32, b: i32, sum: i32) -> i32 {
     todo!()
 }
