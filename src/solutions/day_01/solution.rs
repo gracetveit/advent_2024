@@ -30,7 +30,7 @@
 /// After we've sorted the vectors, maybe we can `reduce` them. First
 /// finding the absolute value between the two, and then adding that to a
 /// rolling sum.
-pub fn sol(filename: &str) -> i32 {
+pub fn day_01_solution(filename: &str) -> i32 {
     let (mut vec_a, mut vec_b) = day_01_parse(filename);
     vec_a.sort();
     vec_b.sort();
