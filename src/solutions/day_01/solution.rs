@@ -75,3 +75,33 @@ fn multi_reduce(a: i32, b: i32, sum: i32) -> i32 {
 fn test_multi_reduce() {
     assert_eq!(multi_reduce(1, 2, 0), 1);
 }
+
+/// # Problem
+/// Calculate the *similarity score* by adding up each number in the left list 
+/// after multiplying it by the number of times that number appears in the right
+/// list
+/// 
+/// # Approach
+/// We already have a way to parse the string into two seperate lists, yay!
+/// 
+/// The general idea would be, for each item in list_a, find the count of that
+/// item in list b, and multiply the item by the count.
+/// The lists do *not* need to be sorted.
+pub fn part_two(filename: &str) -> i32 {
+    let (vec_a, vec_b) = day_01_parse(filename);
+    let mut sum = 0;
+    for x in vec_a {
+        sum += x * count(x,&vec_b);
+    }
+    return sum;
+}
+
+fn count(n: i32, list_of_numbers: &Vec<i32>) -> i32 {
+    todo!()
+}
+
+#[test]
+fn count_test() {
+    let list = vec![1, 4, 5, 5, 5];
+    assert_eq!(count(5, &list), 3);
+}
