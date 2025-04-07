@@ -97,7 +97,11 @@ pub fn part_two(filename: &str) -> i32 {
 }
 
 fn count(n: i32, list_of_numbers: &Vec<i32>) -> i32 {
-    todo!()
+    let mut count = 0;
+    for x in list_of_numbers {
+        if n == *x {count += 1}
+    }
+    return count;
 }
 
 #[test]
