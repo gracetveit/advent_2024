@@ -1,3 +1,5 @@
+mod lib;
+
 fn main() {
-    println!("Hello, world!");
+    lib::day_01::solution::sol();
 }
