@@ -30,6 +30,7 @@
 /// After we've sorted the vectors, maybe we can `reduce` them. First
 /// finding the absolute value between the two, and then adding that to a
 /// rolling sum.
-pub fn sol() {
+pub fn sol(filename: &str) -> i32 {
     println!("Hello World!");
+    todo!()
 }
