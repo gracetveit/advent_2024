@@ -1,3 +1,5 @@
+use crate::input_reader::input_reader;
+
 /// # Problem
 /// ## Example input
 /// ```
@@ -44,12 +46,20 @@ pub fn day_01_solution(filename: &str) -> i32 {
 }
 
 fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
-    todo!()
+    use crate::input_reader;
+    let mut vec_a = vec![];
+    let mut vec_b = vec![];
+    let raw_string = input_reader(String::from(filename));
+    for line in raw_string.split("\n") {
+        let nums: Vec<&str> = line.split("   ").collect();
+        vec_a.push(nums[0].parse::<i32>().unwrap());
+        vec_b.push(nums[1].parse::<i32>().unwrap());
+    }
+    return (vec_a, vec_b);
 }
 
 #[test]
 fn test_parse() {
-    use super::solution::day_01_parse;
     let list_a = vec![3, 4, 2, 1, 3, 3];
     let list_b = vec![4, 3, 5, 3, 9, 3];
 
