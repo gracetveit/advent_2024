@@ -45,12 +45,22 @@ pub fn day_01_solution(filename: &str) -> i32 {
     return sum;
 }
 
+fn nums_blank_handler(nums: &Vec<&str>) -> bool {
+    if nums[0] == "" {
+        return true;
+    }
+    return false;
+}
+
 fn day_01_parse(filename: &str) -> (Vec<i32>, Vec<i32>) {
     let mut vec_a = vec![];
     let mut vec_b = vec![];
     let raw_string = input_reader(String::from(filename));
     for line in raw_string.split("\n") {
         let nums: Vec<&str> = line.split("   ").collect();
+        if nums_blank_handler(&nums) {
+            continue;
+        }
         vec_a.push(nums[0].parse::<i32>().unwrap());
         vec_b.push(nums[1].parse::<i32>().unwrap());
     }
