@@ -21,5 +21,9 @@ fn main() {
     let day_03 = solutions::day_03::Solution::new("inputs/day_03.txt");
     println!("Part 1: {:?}", day_03.mul());
     let day_03_pt_2 = solutions::day_03::Solution::new_with_do("inputs/day_03.txt");
-    println!("Part 2: {:?}", day_03_pt_2.mul())
+    println!("Part 2: {:?}", day_03_pt_2.mul());
+
+    println!("\n# Day 4");
+    let day_04 = solutions::day_04::Solution::new("inputs/day_04.txt");
+    println!("Part 1: {:?}", day_04.part_one());
 }
