@@ -26,4 +26,5 @@ fn main() {
     println!("\n# Day 4");
     let day_04 = solutions::day_04::Solution::new("inputs/day_04.txt");
     println!("Part 1: {:?}", day_04.part_one());
+    println!("Part 2: {:?}", day_04.part_two());
 }
