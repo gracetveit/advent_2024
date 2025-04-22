@@ -11,6 +11,7 @@ use crate::input_reader::input_reader;
 /// thing to do is read the file into memory.
 ///
 /// We now can make x number of functions that test if a report is safe/unsafe
+///
 pub struct Day02Solution {
     reports: Vec<Vec<i32>>,
 }
@@ -44,6 +45,18 @@ impl Day02Solution {
         return num;
     }
 
+    pub fn part_two(&self) -> i32 {
+        let mut num = 0;
+        for report in &self.reports {
+            if Day02Solution::mono_directional_test(report)
+                && Day02Solution::number_of_steps_test(report)
+            {
+                num += 1;
+            } else if Day02Solution::test_single_bad_level(report) { num += 1}
+        }
+        return num;
+    }
+
     fn mono_directional_test(report: &Vec<i32>) -> bool {
         let mut i = 2;
         let positive = report[1] - report[0] > 0;
@@ -68,6 +81,19 @@ impl Day02Solution {
         }
         return true;
     }
+
+    fn test_single_bad_level(report: &Vec<i32>) -> bool {
+        let mut i = 0;
+        while i < report.len() {
+            let mut edited_report = report.clone();
+            edited_report.remove(i);
+            if Day02Solution::mono_directional_test(&edited_report) && Day02Solution::number_of_steps_test(&edited_report) {
+                return true
+            }
+            i += 1;
+        }
+        return false;
+    }
 }
 
 #[test]
@@ -91,4 +117,9 @@ fn test_mono() {
     let test_02 = vec![77, 80, 81, 82, 86];
     assert_eq!(Day02Solution::mono_directional_test(&test_01), false);
     assert_eq!(Day02Solution::mono_directional_test(&test_02), true);
+}
+
+#[test]
+fn day_two_test_input() {
+    assert_eq!(Day02Solution::new("inputs/day_02_test.txt").part_two(), 4)
 }

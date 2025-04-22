@@ -13,7 +13,11 @@ fn main() {
     );
     println!("# Day 2\n");
     println!(
-        "Part1: {:?}",
+        "Part 1: {:?}",
         solutions::day_02::Day02Solution::new("inputs/day_02.txt").part_one()
-    )
+    );
+    println!(
+        "Part 2: {:?}",
+        solutions::day_02::Day02Solution::new("inputs/day_02.txt").part_two()
+    );
 }
