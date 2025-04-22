@@ -1,8 +1,9 @@
+extern crate regex;
 pub mod input_reader;
 mod solutions;
 
 fn main() {
-    println!("# Day 1\n");
+    println!("# Day 1");
     println!(
         "Part 1: {:}",
         solutions::day_01::solution::day_01_solution("inputs/day_01.txt")
@@ -11,8 +12,12 @@ fn main() {
         "Part 2: {:}",
         solutions::day_01::solution::part_two("inputs/day_01.txt")
     );
-    println!("# Day 2\n");
+    println!("\n# Day 2");
     let day_02 = solutions::day_02::Day02Solution::new("inputs/day_02.txt");
     println!("Part 1: {:?}", day_02.part_one());
     println!("Part 2: {:?}", day_02.part_two());
+
+    println!("\n# Day 3");
+    let day_03 = solutions::day_03::Solution::new("inputs/day_03.txt");
+    println!("Part 1: {:?}", day_03.mul());
 }
