@@ -52,7 +52,9 @@ impl Day02Solution {
                 && Day02Solution::number_of_steps_test(report)
             {
                 num += 1;
-            } else if Day02Solution::test_single_bad_level(report) { num += 1}
+            } else if Day02Solution::test_single_bad_level(report) {
+                num += 1
+            }
         }
         return num;
     }
@@ -87,8 +89,10 @@ impl Day02Solution {
         while i < report.len() {
             let mut edited_report = report.clone();
             edited_report.remove(i);
-            if Day02Solution::mono_directional_test(&edited_report) && Day02Solution::number_of_steps_test(&edited_report) {
-                return true
+            if Day02Solution::mono_directional_test(&edited_report)
+                && Day02Solution::number_of_steps_test(&edited_report)
+            {
+                return true;
             }
             i += 1;
         }

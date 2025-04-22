@@ -12,12 +12,7 @@ fn main() {
         solutions::day_01::solution::part_two("inputs/day_01.txt")
     );
     println!("# Day 2\n");
-    println!(
-        "Part 1: {:?}",
-        solutions::day_02::Day02Solution::new("inputs/day_02.txt").part_one()
-    );
-    println!(
-        "Part 2: {:?}",
-        solutions::day_02::Day02Solution::new("inputs/day_02.txt").part_two()
-    );
+    let day_02 = solutions::day_02::Day02Solution::new("inputs/day_02.txt");
+    println!("Part 1: {:?}", day_02.part_one());
+    println!("Part 2: {:?}", day_02.part_two());
 }
