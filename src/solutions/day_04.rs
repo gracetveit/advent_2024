@@ -19,12 +19,16 @@ impl Solution {
         return Solution { word_search };
     }
 
+    fn index(&self, pos: &Vec<usize>) -> char {
+        return self.word_search[pos[0]][pos[1]]
+    }
+
     pub fn part_one(&self) -> u32 {
         let mut pos = vec![0, 0];
         let mut sum = 0;
         while pos[0] < self.word_search.len() {
             while pos[1] < self.word_search[0].len() {
-                if self.word_search[pos[0]][pos[1]] == 'X' {
+                if self.index(&pos) == 'X' {
                     for dir in [1, 2, 3, 4, 6, 7, 8, 9] {
                         if self.direct_line_search(&pos, dir, 'X') {
                             sum += 1
@@ -45,7 +49,7 @@ impl Solution {
         let mut sum = 0;
         while pos[0] < self.word_search.len() {
             while pos[1] < self.word_search[0].len() {
-                if self.word_search[pos[0]][pos[1]] == 'A' {
+                if self.index(&pos) == 'A' {
                     if self.valid_cross(&pos) {
                         sum += 1
                     }
@@ -66,10 +70,10 @@ impl Solution {
         let lower_right = self.new_pos(pos, 3);
         match (upper_left, upper_right, lower_left, lower_right) {
             (Some(valid_ul), Some(valid_ur), Some(valid_ll), Some(valid_lr)) => {
-                let ulchar = self.word_search[valid_ul[0]][valid_ul[1]];
-                let urchar = self.word_search[valid_ur[0]][valid_ur[1]];
-                let llchar = self.word_search[valid_ll[0]][valid_ll[1]];
-                let lrchar = self.word_search[valid_lr[0]][valid_lr[1]];
+                let ulchar = self.index(&valid_ul);
+                let urchar = self.index(&valid_ur);
+                let llchar = self.index(&valid_ll);
+                let lrchar = self.index(&valid_lr);
                 return Solution::mirror_check(ulchar, lrchar)
                     && Solution::mirror_check(urchar, llchar);
             }
@@ -90,7 +94,7 @@ impl Solution {
         let new_char = Solution::next_char(current_char);
         match new_pos {
             Some(pos) => {
-                if self.word_search[pos[0]][pos[1]] == new_char {
+                if self.index(&pos) == new_char {
                     if new_char == 'S' {
                         return true;
                     } else {
