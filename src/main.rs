@@ -27,4 +27,9 @@ fn main() {
     let day_04 = solutions::day_04::Solution::new("inputs/day_04.txt");
     println!("Part 1: {:?}", day_04.part_one());
     println!("Part 2: {:?}", day_04.part_two());
+
+    println!("\n# Day 5");
+    let mut day_05 = solutions::day_05::Solution::new("inputs/day_05.txt");
+    println!("Part 1: {:?}", day_05.part_one());
+    println!("Part 2: {:}", day_05.part_two());
 }
