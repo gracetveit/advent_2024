@@ -20,7 +20,7 @@ impl Solution {
     }
 
     fn index(&self, pos: &Vec<usize>) -> char {
-        return self.word_search[pos[0]][pos[1]]
+        return self.word_search[pos[0]][pos[1]];
     }
 
     pub fn part_one(&self) -> u32 {
